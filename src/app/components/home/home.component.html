@@ -5,6 +5,7 @@
       <mat-select
         panelClass="sort-select"
         [(ngModel)]="sort"
+        (selectionChange)="searchGames(sort)"
       >
         <mat-option value="name">Name</mat-option>
         <mat-option value="-released">Released</mat-option>
@@ -35,13 +36,16 @@
         <div class="game-description">
           <p class="game-name">{{ game.name }}</p>
           <div class="game-platforms">
-            <!-- <img
+            <img
              *ngFor="let gamePlatform of game.parent_platforms"            
               class="game-platform"
-              src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
-              alt="{{ gamePlatform.platform.slug }}"
-            /> -->
+              src="assets/images/platforms/{{ gamePlatform.platform.slug}}.svg"
+              alt="{{ gamePlatform.platform.slug}}"
+            />
           </div>
+          <!-- <pre *ngFor="let a of game.parent_platforms" >
+            {{ a?.platform?.slug }}
+          </pre> -->
         </div>
       </div>
     </ng-container> 
